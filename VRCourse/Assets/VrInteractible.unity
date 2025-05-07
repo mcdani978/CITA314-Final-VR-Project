@@ -3784,6 +3784,52 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -6447266317303757838, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ButtonPressPoint: 0.5
+--- !u!1 &75763048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 75763050}
+  - component: {fileID: 75763049}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &75763049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75763048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704de83ba221b47a5a89e7c32daa25bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalPins: 10
+  winScore: 10
+--- !u!4 &75763050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75763048}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.930133, y: 0.010387352, z: 17.366838}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &77135170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6928,9 +6974,10 @@ GameObject:
   - component: {fileID: 155443344}
   - component: {fileID: 155443347}
   - component: {fileID: 155443348}
+  - component: {fileID: 155443349}
   m_Layer: 0
   m_Name: Circle (2)
-  m_TagString: Untagged
+  m_TagString: Pin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7049,6 +7096,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10.100967, y: 10.1009655, z: 32.24999}
   m_Center: {x: -0.0030374527, y: -0.001227617, z: 13.039673}
+--- !u!114 &155443349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155443342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3f59fc8c0404fc39a1124c8a09c164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &155651694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19004,9 +19063,10 @@ GameObject:
   - component: {fileID: 553042204}
   - component: {fileID: 553042207}
   - component: {fileID: 553042208}
+  - component: {fileID: 553042209}
   m_Layer: 0
   m_Name: Circle (7)
-  m_TagString: Untagged
+  m_TagString: Pin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19125,6 +19185,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10.100967, y: 10.1009655, z: 32.24999}
   m_Center: {x: -0.0030374527, y: -0.0012581346, z: 13.039673}
+--- !u!114 &553042209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553042202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3f59fc8c0404fc39a1124c8a09c164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &554112373
 GameObject:
   m_ObjectHideFlags: 0
@@ -19360,9 +19432,10 @@ GameObject:
   - component: {fileID: 558782754}
   - component: {fileID: 558782757}
   - component: {fileID: 558782758}
+  - component: {fileID: 558782759}
   m_Layer: 0
   m_Name: Circle (6)
-  m_TagString: Untagged
+  m_TagString: Pin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19481,6 +19554,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10.100967, y: 10.1009655, z: 32.24999}
   m_Center: {x: -0.0030374527, y: -0.001227617, z: 13.039675}
+--- !u!114 &558782759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558782752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3f59fc8c0404fc39a1124c8a09c164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &560809825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26082,6 +26167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pinballs extended reality final
       objectReference: {fileID: 0}
+    - target: {fileID: 5233112405309087440, guid: f153a2f4c0d3d4671ac9fc337a5107a6, type: 3}
+      propertyPath: m_TagString
+      value: Pin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4424396828587804706, guid: f153a2f4c0d3d4671ac9fc337a5107a6, type: 3}
@@ -26123,6 +26212,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5233112405309087440, guid: f153a2f4c0d3d4671ac9fc337a5107a6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1064610798}
+    - targetCorrespondingSourceObject: {fileID: 5233112405309087440, guid: f153a2f4c0d3d4671ac9fc337a5107a6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1064610799}
   m_SourcePrefab: {fileID: 100100000, guid: f153a2f4c0d3d4671ac9fc337a5107a6, type: 3}
 --- !u!4 &743812482 stripped
 Transform:
@@ -38161,6 +38253,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10.100967, y: 9.191826, z: 32.24999}
   m_Center: {x: -0.003045026, y: 0.21937235, z: 13.039672}
+--- !u!114 &1064610799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064610792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3f59fc8c0404fc39a1124c8a09c164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1065257748
 GameObject:
   m_ObjectHideFlags: 0
@@ -45363,9 +45467,10 @@ GameObject:
   - component: {fileID: 1283441459}
   - component: {fileID: 1283441462}
   - component: {fileID: 1283441463}
+  - component: {fileID: 1283441464}
   m_Layer: 0
   m_Name: Circle (4)
-  m_TagString: Untagged
+  m_TagString: Pin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45484,6 +45589,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10.100967, y: 10.1009655, z: 32.24999}
   m_Center: {x: -0.0030374527, y: -0.001227617, z: 13.039674}
+--- !u!114 &1283441464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283441457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3f59fc8c0404fc39a1124c8a09c164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1290854253
 GameObject:
   m_ObjectHideFlags: 0
@@ -46871,9 +46988,10 @@ GameObject:
   - component: {fileID: 1342827318}
   - component: {fileID: 1342827321}
   - component: {fileID: 1342827322}
+  - component: {fileID: 1342827323}
   m_Layer: 0
   m_Name: Circle (8)
-  m_TagString: Untagged
+  m_TagString: Pin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46992,6 +47110,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10.100967, y: 10.1009655, z: 32.24999}
   m_Center: {x: -0.0030374527, y: -0.0012581346, z: 13.039675}
+--- !u!114 &1342827323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342827316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3f59fc8c0404fc39a1124c8a09c164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1343007706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49996,9 +50126,10 @@ GameObject:
   - component: {fileID: 1395704362}
   - component: {fileID: 1395704365}
   - component: {fileID: 1395704366}
+  - component: {fileID: 1395704367}
   m_Layer: 0
   m_Name: Circle (5)
-  m_TagString: Untagged
+  m_TagString: Pin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50117,6 +50248,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10.100967, y: 10.1009655, z: 32.24999}
   m_Center: {x: -0.0030374527, y: -0.001227617, z: 13.039674}
+--- !u!114 &1395704367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395704360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3f59fc8c0404fc39a1124c8a09c164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1397153861
 GameObject:
   m_ObjectHideFlags: 0
@@ -54504,9 +54647,10 @@ GameObject:
   - component: {fileID: 1511470519}
   - component: {fileID: 1511470522}
   - component: {fileID: 1511470523}
+  - component: {fileID: 1511470524}
   m_Layer: 0
   m_Name: Circle (3)
-  m_TagString: Untagged
+  m_TagString: Pin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54625,6 +54769,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10.100967, y: 10.1009655, z: 32.24999}
   m_Center: {x: -0.0030374527, y: -0.0012581346, z: 13.039672}
+--- !u!114 &1511470524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511470517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3f59fc8c0404fc39a1124c8a09c164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1514846748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57149,9 +57305,10 @@ GameObject:
   - component: {fileID: 1547129358}
   - component: {fileID: 1547129361}
   - component: {fileID: 1547129362}
+  - component: {fileID: 1547129363}
   m_Layer: 0
   m_Name: Circle (1)
-  m_TagString: Untagged
+  m_TagString: Pin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57270,6 +57427,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10.100967, y: 10.1009655, z: 32.24999}
   m_Center: {x: -0.0030374527, y: -0.0012581346, z: 13.039676}
+--- !u!114 &1547129363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547129356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3f59fc8c0404fc39a1124c8a09c164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1559594996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68030,6 +68199,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pinballs extended reality final (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4424396828587804706, guid: f153a2f4c0d3d4671ac9fc337a5107a6, type: 3}
+      propertyPath: m_TagString
+      value: Ball
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -6733177361254619370, guid: f153a2f4c0d3d4671ac9fc337a5107a6, type: 3}
@@ -76792,9 +76965,10 @@ GameObject:
   - component: {fileID: 2123469732}
   - component: {fileID: 2123469735}
   - component: {fileID: 2123469736}
+  - component: {fileID: 2123469737}
   m_Layer: 0
   m_Name: Circle (9)
-  m_TagString: Untagged
+  m_TagString: Pin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76913,6 +77087,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10.100967, y: 10.1009655, z: 32.24999}
   m_Center: {x: -0.0030374527, y: -0.0012581346, z: 13.039673}
+--- !u!114 &2123469737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123469730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3f59fc8c0404fc39a1124c8a09c164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2124400856 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 34aea5bb652b70d4bb71a20e45847a29, type: 3}
@@ -98128,3 +98314,4 @@ SceneRoots:
   - {fileID: 1658248903}
   - {fileID: 743812481}
   - {fileID: 1844686720}
+  - {fileID: 75763050}
