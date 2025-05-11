@@ -14,7 +14,6 @@ public class BallThrowTest : MonoBehaviour
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
 
-            // Send the ball down the lane in the correct direction
             Vector3 forward = new Vector3(-1, 0, 0); 
             rb.AddForce(forward * forwardForce);
         }

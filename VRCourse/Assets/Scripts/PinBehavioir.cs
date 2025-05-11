@@ -9,7 +9,6 @@ public class PinBehavior : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
-            // Add to score and disable this pin
             GameManager.Instance.AddScore(10);
             gameObject.SetActive(false);
         }
