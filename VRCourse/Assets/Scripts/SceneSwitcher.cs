@@ -9,6 +9,7 @@ public class SceneSwitcher : MonoBehaviour
 
     public void LoadScene()
     {
-        SceneManager.LoadScene(sceneToLoad); 
+        SceneManager.LoadScene(5);
+
     }
 }

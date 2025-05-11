@@ -9,6 +9,7 @@ TagManager:
   - WallCube
   - Pin
   - Ball
+  - ResetZone
   layers:
   - Default
   - TransparentFX
