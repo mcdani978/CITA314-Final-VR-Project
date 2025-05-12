@@ -72,6 +72,12 @@ public class ButtonInteractable : XRBaseInteractable
         {
             promptText.text = newPromptMessage;
         }
+
+        // ✅ Call the GameManager's StartGame function
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.StartGame();
+        }
     }
 
     protected override void OnSelectExited(SelectExitEventArgs args)

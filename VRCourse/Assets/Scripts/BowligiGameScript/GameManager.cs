@@ -1,105 +1,100 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.UI;
 using TMPro;
 
-public class GameManager : MonoBehaviour
+public class ButtonInteractable : XRBaseInteractable
 {
-    public static GameManager Instance;
+    [Header("Visuals")]
+    [SerializeField] private Image buttonImage;
+    [SerializeField] private Color[] buttonColors;
 
-    [Header("Score Settings")]
-    private int currentScore = 0;
-    public int totalPins = 10;
-    public int winScore = 100;
+    [Header("UI Prompt")]
+    [SerializeField] private TextMeshProUGUI promptText;
+    [SerializeField] private string newPromptMessage;
 
-    public TextMeshProUGUI scoreText;
+    // Cached Colors
+    private Color buttonNormalColor;
+    private Color buttonHighlightedColor;
+    private Color buttonPressedColor;
+    private Color buttonSelectedColor;
 
-    [Header("UI Elements")]
-    public GameObject menuCanvas;        
-    public Button startButton;
-    public Button restartButton;
-    public GameObject scoreUI;         
+    // State
+    private bool isPressed;
 
-    private bool hasGameStarted = false;
-
-    [Header("Audio")]
-    public AudioClip buttonClick;
-    private AudioSource audioSource;
-
-    private void Awake()
+    protected override void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
-    }
+        base.Awake();
 
-    private void Start()
-    {
-        Time.timeScale = 0f; // Pause at the start
-        menuCanvas.SetActive(true);              // Show start menu
-        restartButton.gameObject.SetActive(false); // Hide restart at first
-        scoreUI.SetActive(false);                // Hide score UI
-
-        startButton.onClick.AddListener(StartGame);
-        restartButton.onClick.AddListener(RestartGame);
-
-        UpdateScoreText();
-
-        audioSource = GetComponent<AudioSource>();
-    }
-
-    public void StartGame()
-    {
-        if (audioSource && buttonClick)
-            audioSource.PlayOneShot(buttonClick);
-
-        hasGameStarted = true;
-        Time.timeScale = 1f; 
-        menuCanvas.SetActive(false);      
-        scoreUI.SetActive(true);          
-    }
-
-    public void EndGame()
-    {
-        hasGameStarted = false;
-        Time.timeScale = 0f;             
-        menuCanvas.SetActive(true);       
-        startButton.gameObject.SetActive(false);   
-        restartButton.gameObject.SetActive(true); 
-        scoreUI.SetActive(false);      
-    }
-
-    public void RestartGame()
-    {
-        if (audioSource && buttonClick)
-            audioSource.PlayOneShot(buttonClick);
-
-        Time.timeScale = 1f; 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public void AddScore(int points)
-    {
-        currentScore += points;
-        UpdateScoreText();
-
-        if (currentScore >= winScore)
+        if (buttonColors.Length >= 4)
         {
-            Invoke("EndGame", 2f);  
+            buttonNormalColor = buttonColors[0];
+            buttonHighlightedColor = buttonColors[1];
+            buttonPressedColor = buttonColors[2];
+            buttonSelectedColor = buttonColors[3];
+        }
+
+        if (buttonImage != null)
+            buttonImage.color = buttonNormalColor;
+    }
+
+    protected override void OnHoverEntered(HoverEnterEventArgs args)
+    {
+        base.OnHoverEntered(args);
+        isPressed = false;
+
+        if (buttonImage != null)
+            buttonImage.color = buttonHighlightedColor;
+    }
+
+    protected override void OnHoverExited(HoverExitEventArgs args)
+    {
+        base.OnHoverExited(args);
+
+        if (isPressed) return;
+
+        if (buttonImage != null)
+            buttonImage.color = buttonNormalColor;
+    }
+
+    protected override void OnSelectEntered(SelectEnterEventArgs args)
+    {
+        base.OnSelectEntered(args);
+
+        if (isPressed) return;
+        isPressed = true;
+
+        if (buttonImage != null)
+            buttonImage.color = buttonPressedColor;
+
+        if (promptText != null && !string.IsNullOrEmpty(newPromptMessage))
+        {
+            promptText.text = newPromptMessage;
+        }
+
+        // 🎯 Call StartGame on the GameManager when button is selected
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.StartGame();
         }
     }
 
-    void UpdateScoreText()
+    protected override void OnSelectExited(SelectExitEventArgs args)
     {
-        if (scoreText != null)
-        {
-            scoreText.text = "Score: " + currentScore;
-        }
+        base.OnSelectExited(args);
+
+        if (buttonImage != null)
+            buttonImage.color = buttonSelectedColor;
     }
 
-    public bool HasGameStarted()
+    public void SetColorToNormal()
     {
-        return hasGameStarted;
+        SetButtonColor(buttonNormalColor);
+    }
+
+    public void SetButtonColor(Color newColor)
+    {
+        if (buttonImage != null)
+            buttonImage.color = newColor;
     }
 }
