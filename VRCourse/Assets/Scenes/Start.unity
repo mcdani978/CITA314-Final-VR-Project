@@ -2679,12 +2679,14 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+  buttonImage: {fileID: 60985984}
   buttonColors:
   - {r: 0.5647059, g: 0.5647059, b: 0.5647059, a: 1}
   - {r: 0.74509805, g: 0.74509805, b: 0.74509805, a: 1}
   - {r: 0.8901961, g: 0.93333334, b: 0.654902, a: 1}
   - {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 0.5019608}
-  buttonImage: {fileID: 60985984}
+  promptText: {fileID: 0}
+  newPromptMessage: 
 --- !u!65 &60985983
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15225,12 +15227,14 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+  buttonImage: {fileID: 398287392}
   buttonColors:
   - {r: 0.5647059, g: 0.5647059, b: 0.5647059, a: 1}
   - {r: 0.74509805, g: 0.74509805, b: 0.74509805, a: 1}
   - {r: 0.8901961, g: 0.93333334, b: 0.654902, a: 1}
   - {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 0.5019608}
-  buttonImage: {fileID: 398287392}
+  promptText: {fileID: 0}
+  newPromptMessage: 
 --- !u!65 &398287391
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15749,7 +15753,6 @@ GameObject:
   - component: {fileID: 417625259}
   - component: {fileID: 417625258}
   - component: {fileID: 417625261}
-  - component: {fileID: 417625262}
   - component: {fileID: 417625263}
   - component: {fileID: 417625265}
   - component: {fileID: 417625266}
@@ -15859,7 +15862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1295466692}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -15892,7 +15895,7 @@ MonoBehaviour:
   m_FirstSelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 417625262}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneSwitcher, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 1
@@ -15910,7 +15913,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 417625262}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneSwitcher, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 1
@@ -15940,7 +15943,7 @@ MonoBehaviour:
   m_Activated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 417625262}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneSwitcher, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 1
@@ -15985,19 +15988,6 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &417625262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 417625256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8e0578d8b62d964787210f56b36557e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToLoad: VrInteractible
 --- !u!114 &417625263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24341,12 +24331,14 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+  buttonImage: {fileID: 687384053}
   buttonColors:
   - {r: 0.5647059, g: 0.5647059, b: 0.5647059, a: 1}
   - {r: 0.74509805, g: 0.74509805, b: 0.74509805, a: 1}
   - {r: 0.8901961, g: 0.93333334, b: 0.654902, a: 1}
   - {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 0.5019608}
-  buttonImage: {fileID: 687384053}
+  promptText: {fileID: 0}
+  newPromptMessage: 
 --- !u!65 &687384052
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24661,6 +24653,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8b5da33d4d6dffc489400a36eb20f79c, type: 3}
   m_PrefabInstance: {fileID: 699440140}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &700808903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 700808905}
+  - component: {fileID: 700808904}
+  m_Layer: 0
+  m_Name: SceneLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &700808904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700808903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e0578d8b62d964787210f56b36557e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &700808905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700808903}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.86148506, y: 3.0337074, z: 2.4273648}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &701791828
 GameObject:
   m_ObjectHideFlags: 0
@@ -24727,6 +24763,8 @@ MonoBehaviour:
   comboButtonPressedClip: {fileID: 8300000, guid: 256bdb10da09c744f86381dce72934e6, type: 3}
   unlockedButtonColor: {r: 0, g: 1, b: 0, a: 1}
   incorrectComboButtonColor: {r: 1, g: 0, b: 0, a: 1}
+  gameOptionsCanvas: {fileID: 0}
+  lockUI: {fileID: 0}
 --- !u!114 &701791831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32718,12 +32756,14 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+  buttonImage: {fileID: 910071359}
   buttonColors:
   - {r: 0.5647059, g: 0.5647059, b: 0.5647059, a: 1}
   - {r: 0.74509805, g: 0.74509805, b: 0.74509805, a: 1}
   - {r: 0.8901961, g: 0.93333334, b: 0.654902, a: 1}
   - {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 0.5019608}
-  buttonImage: {fileID: 910071359}
+  promptText: {fileID: 0}
+  newPromptMessage: 
 --- !u!65 &910071358
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37573,12 +37613,14 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+  buttonImage: {fileID: 1056581080}
   buttonColors:
   - {r: 0.5647059, g: 0.5647059, b: 0.5647059, a: 1}
   - {r: 0.74509805, g: 0.74509805, b: 0.74509805, a: 1}
   - {r: 0.8901961, g: 0.93333334, b: 0.654902, a: 1}
   - {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 0.5019608}
-  buttonImage: {fileID: 1056581080}
+  promptText: {fileID: 0}
+  newPromptMessage: 
 --- !u!65 &1056581079
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47267,12 +47309,14 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+  buttonImage: {fileID: 1345093912}
   buttonColors:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
-  buttonImage: {fileID: 1345093912}
+  promptText: {fileID: 0}
+  newPromptMessage: 
 --- !u!65 &1345093911
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47625,12 +47669,14 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+  buttonImage: {fileID: 1353159804}
   buttonColors:
   - {r: 0.5647059, g: 0.5647059, b: 0.5647059, a: 1}
   - {r: 0.74509805, g: 0.74509805, b: 0.74509805, a: 1}
   - {r: 0.8901961, g: 0.93333334, b: 0.654902, a: 1}
   - {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 0.5019608}
-  buttonImage: {fileID: 1353159804}
+  promptText: {fileID: 0}
+  newPromptMessage: 
 --- !u!65 &1353159803
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -69271,12 +69317,14 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+  buttonImage: {fileID: 1904128763}
   buttonColors:
   - {r: 0.5647059, g: 0.5647059, b: 0.5647059, a: 1}
   - {r: 0.74509805, g: 0.74509805, b: 0.74509805, a: 1}
   - {r: 0.8901961, g: 0.93333334, b: 0.654902, a: 1}
   - {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 0.5019608}
-  buttonImage: {fileID: 1904128763}
+  promptText: {fileID: 0}
+  newPromptMessage: 
 --- !u!65 &1904128762
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -98011,3 +98059,4 @@ SceneRoots:
   - {fileID: 1994700955}
   - {fileID: 399602496}
   - {fileID: 868555947}
+  - {fileID: 700808905}

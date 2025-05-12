@@ -1,84 +1,95 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.UI;
+using TMPro;
 
-public class ButtonInteractable : XRSimpleInteractable
+public class ButtonInteractable : XRBaseInteractable
 {
-    //Serialized Fields
-    [SerializeField]
-    Color[] buttonColors = new Color[4];
+    [Header("Visuals")]
+    [SerializeField] private Image buttonImage;
+    [SerializeField] private Color[] buttonColors;
 
-    [SerializeField]
-    Image buttonImage;
+    [Header("UI Prompt")]
+    [SerializeField] private TextMeshProUGUI promptText;
+    [SerializeField] private string newPromptMessage;
 
-    //Cashe References
-    Color buttonNormalColor;
-    Color buttonHighlightedColor;
-    Color buttonPressedColor;
-    Color buttonSelectedColor;
+    // Cached Colors
+    private Color buttonNormalColor;
+    private Color buttonHighlightedColor;
+    private Color buttonPressedColor;
+    private Color buttonSelectedColor;
 
-    //Attributes
-    bool isPressed;
+    // State
+    private bool isPressed;
 
     protected override void Awake()
     {
         base.Awake();
 
-        //Set the colors of the different button states
-        buttonNormalColor = buttonColors[0];
-        buttonHighlightedColor = buttonColors[1];
-        buttonPressedColor = buttonColors[2];
-        buttonSelectedColor = buttonColors[3];
+        if (buttonColors.Length >= 4)
+        {
+            buttonNormalColor = buttonColors[0];
+            buttonHighlightedColor = buttonColors[1];
+            buttonPressedColor = buttonColors[2];
+            buttonSelectedColor = buttonColors[3];
+        }
 
-        //Set image color to normal color
-        buttonImage.color = buttonNormalColor;
-
+        if (buttonImage != null)
+            buttonImage.color = buttonNormalColor;
     }
 
-    //Controller hovered over button
     protected override void OnHoverEntered(HoverEnterEventArgs args)
     {
         base.OnHoverEntered(args);
         isPressed = false;
 
-        buttonImage.color = buttonHighlightedColor;
+        if (buttonImage != null)
+            buttonImage.color = buttonHighlightedColor;
     }
 
-    //Controller stopped hovering over button
     protected override void OnHoverExited(HoverExitEventArgs args)
     {
         base.OnHoverExited(args);
 
-        if (isPressed) { return; }
-        buttonImage.color = buttonNormalColor;
+        if (isPressed) return;
+
+        if (buttonImage != null)
+            buttonImage.color = buttonNormalColor;
     }
 
-    //Button has been selected
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
         base.OnSelectEntered(args);
 
-        if (isPressed) { return; }
+        if (isPressed) return;
         isPressed = true;
-        buttonImage.color = buttonPressedColor;
+
+        if (buttonImage != null)
+            buttonImage.color = buttonPressedColor;
+
+        // Update the prompt text
+        if (promptText != null && !string.IsNullOrEmpty(newPromptMessage))
+        {
+            promptText.text = newPromptMessage;
+        }
     }
-    
-    //Button is no longer selected
+
     protected override void OnSelectExited(SelectExitEventArgs args)
     {
         base.OnSelectExited(args);
-        buttonImage.color = buttonSelectedColor;
+
+        if (buttonImage != null)
+            buttonImage.color = buttonSelectedColor;
     }
 
-    //Public method to set color to its normal color
     public void SetColorToNormal()
     {
         SetButtonColor(buttonNormalColor);
     }
 
-    //Public method to set color to given color
     public void SetButtonColor(Color newColor)
     {
-        buttonImage.color = newColor;
+        if (buttonImage != null)
+            buttonImage.color = newColor;
     }
 }
