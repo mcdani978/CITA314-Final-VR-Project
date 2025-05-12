@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/OutOfCirculation/Scene/Lib.unity
     guid: a4fc3ce79878d9247ac1ecaf111f9f39
   - enabled: 1
-    path: Assets/VrInteractible.unity
+    path: Assets/Scenes/BowlingGameScene.unity
     guid: c393ccf4078bf467c89903b4dda359d0
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 6584319850e3cc849ad3761739d0a35e, type: 2}
