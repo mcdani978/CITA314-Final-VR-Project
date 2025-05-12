@@ -5,36 +5,59 @@ using UnityEngine;
 public class PinBehavior : MonoBehaviour
 {
     public AudioClip hitSound;
+    public int scoreValue = 10; // Customize how much each pin is worth
+
     private AudioSource audioSource;
-    private bool hasBeenHit = false;
+    private bool hasFallen = false;
+    private bool gameStarted = false;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        StartCoroutine(WaitForGameStart());
+    }
+
+    private IEnumerator WaitForGameStart()
+    {
+        // Wait until the GameManager says the game has started
+        while (GameManager.Instance != null && !GameManager.Instance.HasGameStarted())
+        {
+            yield return null;
+        }
+
+        gameStarted = true;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Don’t do anything if the game hasn’t started or already processed this pin
-        if (!GameManager.Instance.HasGameStarted() || hasBeenHit) return;
+        if (!gameStarted || hasFallen) return;
 
-        // Check if hit by the ball or another pin
-        if (collision.gameObject.CompareTag("Ball") || collision.gameObject.CompareTag("Pin"))
+        if (hitSound != null)
         {
-            hasBeenHit = true;
+            audioSource.PlayOneShot(hitSound);
+        }
 
-            // Play hit sound
-            if (hitSound != null)
-                audioSource.PlayOneShot(hitSound);
+        // Register as fallen based on tilt or strong impact
+        if (collision.relativeVelocity.magnitude > 1f || IsKnockedOver())
+        {
+            hasFallen = true;
 
-            // Add to score
-            GameManager.Instance.AddScore(10);
+            // Add score to GameManager
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.AddScore(scoreValue);
+            }
 
-            // Wait a moment before disabling to let the physics look natural
-            StartCoroutine(DisableAfterDelay(1f));
+            StartCoroutine(DisableAfterDelay(1.5f));
         }
 
         Debug.Log("Pin hit by: " + collision.gameObject.name);
+    }
+
+    private bool IsKnockedOver()
+    {
+        float angle = Vector3.Angle(Vector3.up, transform.up);
+        return angle > 40f;
     }
 
     private IEnumerator DisableAfterDelay(float delay)

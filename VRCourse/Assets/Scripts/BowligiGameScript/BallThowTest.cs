@@ -1,52 +1,46 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
 
-[RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(XRGrabInteractable))]
-public class VRBallThrow : MonoBehaviour
+
+public class BallThrowTest : MonoBehaviour
 {
-    public float throwForceMultiplier = 1f; 
-    private XRGrabInteractable grabInteractable;
-    private Rigidbody rb;
+    public Rigidbody rb;
+    public float forwardForce = 500f;
     private AudioSource audioSource;
+    private bool hasPlayed = false;
 
-    private bool wasThrown = false;
-
-    void Awake()
+    void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        grabInteractable = GetComponent<XRGrabInteractable>();
         audioSource = GetComponent<AudioSource>();
-
-        grabInteractable.selectExited.AddListener(OnReleased);
-    }
-
-    private void OnReleased(SelectExitEventArgs args)
-    {
-        
-        rb.velocity = args.interactorObject.GetAttachTransform(grabInteractable).forward * rb.velocity.magnitude * throwForceMultiplier;
-
-        if (audioSource && !audioSource.isPlaying)
-        {
-            audioSource.Play();
-            wasThrown = true;
-        }
     }
 
     void Update()
     {
-        if (wasThrown && rb.velocity.magnitude < 0.05f)
+        if (GameManager.Instance != null && !GameManager.Instance.HasGameStarted())
+            return;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+
+            Vector3 forward = new Vector3(-1, 0, 0); 
+            rb.AddForce(forward * forwardForce);
+
+            if (audioSource != null && !audioSource.isPlaying)
+            {
+                audioSource.Play();
+                hasPlayed = true;
+            }
+        }
+
+        if (hasPlayed && rb.velocity.magnitude < 0.05f)
         {
             if (audioSource.isPlaying)
                 audioSource.Stop();
 
-            wasThrown = false;
+            hasPlayed = false;
         }
-    }
-
-    private void OnDestroy()
-    {
-        if (grabInteractable != null)
-            grabInteractable.selectExited.RemoveListener(OnReleased);
     }
 }
